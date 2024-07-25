@@ -5,7 +5,7 @@ import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import cookieParser from "cookie-parser";
 import connectdb from "./db/connectdb.js";
-const app=express();
+import {app,server} from "./socket/socket.js"
 
 const PORT=process.env.PORT || 5000
 dotenv.config();
@@ -20,6 +20,6 @@ app.use("/api/users",userRoutes);
 // });
 
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     connectdb();
     console.log(`server running on port ${PORT}`)});
